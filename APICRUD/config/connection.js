@@ -5,10 +5,9 @@ async function connect() {
         return global.connection
 
     const mysql = mysql2
-    const connection = await mysql.createConnection("mysql://root:jpdx1906@localhost:3306/universidade")
-    // mysql://usuario:senha@servidor:porta/banco - a conexão será assíncrona
+    const connection = await mysql.createConnection("mysql://root:jpdx1906@localhost:3306/petshop")
     
-    console.log("Conectado ao DataBase MySQL")
+    console.log("Conectado ao DataBase PETSHOP-MySQL")
     global.connection = connection
     return connection
 }

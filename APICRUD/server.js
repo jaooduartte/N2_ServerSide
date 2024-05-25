@@ -1,7 +1,6 @@
-import express, {Router, urlencoded} from "express"
-import {router} from "../APICRUD/routes/aluno_routes.js"
+import express from "express"
+import {router} from "./routes/pet_routes.js"
 
-//importação das rotas
 let server = express()
 
 server.use(express.json())
