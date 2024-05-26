@@ -1,7 +1,7 @@
-import connect from "../config/connection.js";
+import connect from "../config/connection.js"; // Importa a função de conexão com o banco de dados
 
 let pet = {};
-const con = await connect();
+const con = await connect(); // Cria a conexão com o banco de dados
 
 pet.all = async function (req, res) { //Fazer a busca dos pets
     try {
