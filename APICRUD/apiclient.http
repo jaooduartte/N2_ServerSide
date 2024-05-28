@@ -2,7 +2,7 @@ GET http://localhost:3000/pet HTTP/1.1
 Content-Type: application/json
 ###
 
-GET http://localhost:3000/pet/search?nome_pet=Alfred HTTP/1.1
+GET http://localhost:3000/pet/search?nome_pet=Nina HTTP/1.1
 Content-Type: application/application/json
 ###
 
@@ -20,8 +20,8 @@ PUT http://localhost:3000/pet/2 HTTP/1.1
 Content-Type: application/json
 
 {
-    "nome_pet": "Jully",
-    "genero_pet": "Feminino"
+    "nome_pet": "Gugu",
+    "genero_pet": "Macho"
 }
 ###
 

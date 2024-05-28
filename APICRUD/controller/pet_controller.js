@@ -1,30 +1,30 @@
-import connect from "../config/connection.js"; // Importa a função de conexão com o banco de dados
+import connect from "../config/connection.js"; 
 
 let pet = {};
-const con = await connect(); // Cria a conexão com o banco de dados
+const con = await connect(); 
 
-pet.all = async function (req, res) { //Fazer a busca dos pets
+pet.all = async function (req, res) { 
     try {
-        let pets = await con.query("SELECT * FROM pets;"); // Comando para mostrar todos os pets cadastrados no banco de dados
+        let pets = await con.query("SELECT * FROM pets;"); 
         res.send(pets[0]);
     } catch (e) {
         console.log("Erro na consulta", e);
     }
 }
 
-pet.searchByName = async function (req, res){ //Procurar os pets por nome
+pet.searchByName = async function (req, res){ 
     try {
         let nome_pet = req.query.nome_pet;
-        let sql = "SELECT * FROM pets WHERE nome_pet LIKE ?;"; //Buscar o nome do pet
+        let sql = "SELECT * FROM pets WHERE nome_pet LIKE ?;"; 
         let values = [`%${nome_pet}%`]; //Aqui é um valor onde busca o nome do pet, não precisando colocar o nome por completo
         let result = await con.query(sql, values);
         res.send(result[0]);
     } catch (e) {
-        console.log("Erro na busca por nome", e); // Caso o nome do pet não esteja no banco de dados, retornará este erro
+        console.log("Erro na busca por nome", e);
     }
 }
 
-pet.create = async function (req, res) { // Criar um novo pet
+pet.create = async function (req, res) { 
     try {
         let pet = req.body;
         let sql = "INSERT INTO pets (codigo_pet, nome_pet, genero_pet) VALUES (?, ?, ?);";
@@ -40,7 +40,7 @@ pet.create = async function (req, res) { // Criar um novo pet
 }
 
 
-pet.update = async function (req, res) { // Atualizar dados do pet
+pet.update = async function (req, res) {
     try {
         let id = req.params.codigo_pet; 
         let pet = req.body;
@@ -56,7 +56,7 @@ pet.update = async function (req, res) { // Atualizar dados do pet
     }
 }
 
-pet.delete = async function (req, res) { // Exclusão do pet
+pet.delete = async function (req, res) { 
     try {
         let id = req.params.codigo_pet;
         let sql = "DELETE FROM pets WHERE codigo_pet = ?;";

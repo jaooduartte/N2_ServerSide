@@ -1,4 +1,4 @@
-import mysql2 from "mysql2/promise" // Importa a biblioteca mysql2 com suporte a Promises
+import mysql2 from "mysql2/promise" 
 
 async function connect() {
     if (global.connection && global.connection.state !== 'disconnected')
